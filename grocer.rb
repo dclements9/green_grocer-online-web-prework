@@ -48,16 +48,12 @@ def checkout(cart, coupons)
   merged_cart = consolidate_cart(cart)
   savings_cart = apply_coupons(merged_cart, coupons)
   output_cart = apply_clearance(savings_cart)
-
     total = 0
   output_cart.each do |item, description|
     total += description[:price] * description[:count]
   end
-  #binding.pry
   if total > 100
     total *= 0.9
-
   end
-  #binding.pry
   total
 end
